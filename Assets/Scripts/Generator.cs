@@ -5,7 +5,6 @@ using UnityEngine;
 public class Generator : MonoBehaviour
 {
 
-
     public Mover [] walls;
 
     public Mover easterEgg;
@@ -14,27 +13,43 @@ public class Generator : MonoBehaviour
     Mover nextObject;
 
     void Awake(){
+        initGenerator();
+    }
+
+    public void initGenerator(){
         foreach(Mover mover in walls){
             mover.transform.parent = this.transform;
+            mover.transform.position = new Vector3(
+                transform.position.x,
+                mover.transform.position.y,
+                0);
+            mover.gameObject.SetActive(false);
         }
         easterEgg.transform.parent = this.transform;
+        easterEgg.transform.position = new Vector3(
+                transform.position.x,
+                easterEgg.transform.position.y,
+                0);
+        easterEgg.gameObject.SetActive(false);
+
+
     }
 
     public void setGameController(GameController gameController){
         this.gameController = gameController;
     }
 
-    public void StartGenerator(){
+    public void startGenerator(){
         Debug.Log("Generator Started");
         StartCoroutine(Generating());
     }
 
     IEnumerator Generating(){
         int generatingTime =0;
-        while(true){
+        while(gameController.isPlaying){
             if(gameController.isEasterEgg()){
                 nextObject = easterEgg;
-                generatingTime = gameController.easterEggGeneratingTiem;
+                generatingTime = gameController.easterEggGeneratingTime;
             }
             else{
                 System.Random random = new System.Random();
@@ -52,6 +67,10 @@ public class Generator : MonoBehaviour
 
             yield return new WaitForSeconds(generatingTime);
         }
+    }
+
+    public void stopAllCoroutines(){
+        StopAllCoroutines();
     }
 
 }
