@@ -21,7 +21,7 @@ public class Bird : MonoBehaviour
     Rigidbody2D rb;
 
     void Awake(){
-        this.gameController.setBird(this);
+        this.gameController.bird = this;
         audioSource = GetComponent<AudioSource>();
     }
 

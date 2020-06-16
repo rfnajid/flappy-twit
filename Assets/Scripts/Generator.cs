@@ -7,10 +7,12 @@ public class Generator : MonoBehaviour
 
     public Mover [] walls;
 
-    public Mover easterEgg;
-
-    GameController gameController;
+    public GameController gameController{
+        set; private get;
+    }
     Mover nextObject;
+
+    public Mover easterEgg;
 
     void Awake(){
         initGenerator();
@@ -33,10 +35,6 @@ public class Generator : MonoBehaviour
         easterEgg.gameObject.SetActive(false);
 
 
-    }
-
-    public void setGameController(GameController gameController){
-        this.gameController = gameController;
     }
 
     public void startGenerator(){

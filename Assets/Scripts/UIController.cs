@@ -6,22 +6,20 @@ using UnityEngine.UI;
 public class UIController : MonoBehaviour
 {
 
-    public GameObject UIStart;
-    public GameObject UIGamePlay;
-    public GameObject UIEnd;
-    private GameController gameController;
+    public GameObject uiStart;
+    public GameObject uiGamePlay;
+    public GameObject uiEnd;
+    public GameController gameController{
+        set; private get;
+    }
     private Text textPoint;
 
     private void Awake() {
-        textPoint = UIGamePlay.transform.GetChild(UIGamePlay.transform.childCount-1)
+        textPoint = uiGamePlay.transform.GetChild(uiGamePlay.transform.childCount-1)
             .GetChild(1).GetComponent<Text>();
-        UIGamePlay.SetActive(false);
-        UIEnd.SetActive(false);
-        UIStart.SetActive(true);
-    }
-
-    public void setGameController(GameController gameController){
-        this.gameController = gameController;
+        uiGamePlay.SetActive(false);
+        uiEnd.SetActive(false);
+        uiStart.SetActive(true);
     }
 
     public void setPoint(int point){
@@ -29,19 +27,19 @@ public class UIController : MonoBehaviour
     }
 
     public void gameStart(){
-        UIEnd.SetActive(false);
-        UIStart.SetActive(false);
-        UIGamePlay.SetActive(true);
+        uiEnd.SetActive(false);
+        uiStart.SetActive(false);
+        uiGamePlay.SetActive(true);
     }
 
     public void gameOver(int point){
 
-        Text finalScore = UIEnd.transform.GetChild(UIEnd.transform.childCount-1).GetComponent<Text>();
+        Text finalScore = uiEnd.transform.GetChild(uiEnd.transform.childCount-1).GetComponent<Text>();
         finalScore.text = "score : "+point;
 
-        UIStart.SetActive(false);
-        UIGamePlay.SetActive(false);
-        UIEnd.SetActive(true);
+        uiStart.SetActive(false);
+        uiGamePlay.SetActive(false);
+        uiEnd.SetActive(true);
     }
 
 }

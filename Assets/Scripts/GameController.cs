@@ -13,19 +13,24 @@ public class GameController : MonoBehaviour
         private set; get;
     }
 
+    public Bird bird {
+        set; private get;
+    }
+
     public Generator generator;
     public int generatingTime;
+
+    private UIController uIController;
+
     public int easterEggGeneratingTime;
     public int pointToEasterEgg;
-    private UIController uIController;
-    private Bird bird;
 
     void Awake(){
         //set generator
-        generator.setGameController(this);
+        generator.gameController = this;
         //set UI Controller
         uIController = GetComponent<UIController>();
-        uIController.setGameController(this);
+        uIController.gameController = this;
     }
 
     void Start(){
@@ -69,15 +74,11 @@ public class GameController : MonoBehaviour
         setTextPoint();
     }
 
-    public bool isEasterEgg(){
-        return point >= pointToEasterEgg;
-    }
-
-    public void setBird (Bird bird){
-        this.bird= bird;
-    }
-
     private void setTextPoint(){
         uIController.setPoint(point);
+    }
+
+    public bool isEasterEgg(){
+        return point >= pointToEasterEgg;
     }
 }
