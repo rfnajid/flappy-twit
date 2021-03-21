@@ -53,6 +53,7 @@ public class Generator : MonoBehaviour
                 System.Random random = new System.Random();
                 int randomNumber  = random.Next(0, walls.Length);
                 nextObject = walls[randomNumber];
+                // set active heart 
                 nextObject.transform.GetChild(0).gameObject.SetActive(true);
                 generatingTime = gameController.generatingTime;
             }

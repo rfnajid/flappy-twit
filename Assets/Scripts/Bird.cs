@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-[RequireComponent(typeof(GameController))]
 public class Bird : MonoBehaviour
 {
 
@@ -22,6 +21,8 @@ public class Bird : MonoBehaviour
 
     void Awake(){
         this.gameController.bird = this;
+        this.gameController.setBirdDefaultPosition(transform.position);
+
         audioSource = GetComponent<AudioSource>();
     }
 

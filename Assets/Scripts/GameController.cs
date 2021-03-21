@@ -25,6 +25,8 @@ public class GameController : MonoBehaviour
     public int easterEggGeneratingTime;
     public int pointToEasterEgg;
 
+    private Vector3 birdDefaultPosition;
+
     void Awake(){
         //set generator
         generator.gameController = this;
@@ -48,7 +50,7 @@ public class GameController : MonoBehaviour
         //set UI
         uIController.gameStart();
         //set bird
-        bird.transform.position = new Vector3(-4,4,0);
+        bird.transform.position = birdDefaultPosition;
         bird.gameObject.SetActive(true);
 
         //set generator
@@ -80,5 +82,10 @@ public class GameController : MonoBehaviour
 
     public bool isEasterEgg(){
         return point >= pointToEasterEgg;
+    }
+
+    public void setBirdDefaultPosition(Vector3 position){
+        this.birdDefaultPosition = position;
+        Debug.Log("set bird default position to = "+ this.birdDefaultPosition);
     }
 }
