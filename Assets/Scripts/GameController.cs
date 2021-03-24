@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class GameController : MonoBehaviour
 {
@@ -23,7 +24,12 @@ public class GameController : MonoBehaviour
     private UIController uIController;
 
     public int easterEggGeneratingTime;
-    public int pointToEasterEgg;
+    public int scoreToEasterEgg;
+
+    [SerializeField]
+    private TextMeshPro easterEgg;
+    [SerializeField]
+    private string easterEggMessage;
 
     private Vector3 birdDefaultPosition;
 
@@ -33,6 +39,8 @@ public class GameController : MonoBehaviour
         //set UI Controller
         uIController = GetComponent<UIController>();
         uIController.gameController = this;
+        // set easter egg message
+        easterEgg.text = easterEggMessage;
     }
 
     void Start(){
@@ -81,7 +89,7 @@ public class GameController : MonoBehaviour
     }
 
     public bool isEasterEgg(){
-        return point >= pointToEasterEgg;
+        return point >= scoreToEasterEgg;
     }
 
     public void setBirdDefaultPosition(Vector3 position){

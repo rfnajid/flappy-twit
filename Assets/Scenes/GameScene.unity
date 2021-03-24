@@ -966,7 +966,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Will You Marry Me?
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c6da46a977e12444bbc96a722ea66fb5, type: 2}
   m_sharedMaterial: {fileID: -7583430642609548957, guid: c6da46a977e12444bbc96a722ea66fb5,
@@ -2260,7 +2260,9 @@ MonoBehaviour:
   generator: {fileID: 343428814}
   generatingTime: 5
   easterEggGeneratingTime: 20
-  pointToEasterEgg: 5
+  scoreToEasterEgg: 5
+  easterEgg: {fileID: 494324953}
+  easterEggMessage: Input your message here
 --- !u!4 &1029495807
 Transform:
   m_ObjectHideFlags: 0
