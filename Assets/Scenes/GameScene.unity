@@ -2261,9 +2261,9 @@ MonoBehaviour:
   generator: {fileID: 343428814}
   generatingTime: 5
   easterEggGeneratingTime: 20
-  scoreToEasterEgg: 3
+  scoreToEasterEgg: 10
   easterEgg: {fileID: 494324953}
-  easterEggMessage: Input your message here
+  easterEggMessage: input your message here
 --- !u!4 &1029495807
 Transform:
   m_ObjectHideFlags: 0

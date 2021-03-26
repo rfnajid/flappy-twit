@@ -1,16 +1,20 @@
 # Flappy Twit
 Just another casual game except it includes easter egg message. It can be used to send a surprise message, surprise date/marriage proposal, or any other surprise things.
 
-## Instructions
-- Download & open this code on Unity
-- Select GameController object and edit its properties
+![Flappy Twit Screenshot](https://user-images.githubusercontent.com/10142764/112635974-0f0daa80-8e6f-11eb-84fa-f07566f4853d.png)
 
-- Generator : GameObject with Generator script. Generator is used for generating obstacles and easter egg
-- Generating Time : Time to regenerate obstacles
-- Easter Egg Generating Time : Time to regenerate easter egg
-- Score To Easter Egg : Will start generate easter egg when player reach this score
-- Easter Egg : The EasterEgg. GameObject with TextMeshPro component
-- Easter Egg Message : Easter egg will show this message
+## Instructions
+- Download & open this code on Unity.
+- Select GameController object and edit its properties.
+
+![GameController properties](https://user-images.githubusercontent.com/10142764/112240190-76aed480-8c7a-11eb-8564-c00aa86b6120.png)
+
+- **Generator** : GameObject with Generator script. Generator is used for generating obstacles and easter egg.
+- **Generating Time** : Time to regenerate obstacles.
+- **Easter Egg Generating Time** : Time to regenerate easter egg.
+- **Score To Easter Egg** : Will start generate easter egg when player reach this score.
+- **Easter Egg** : The EasterEgg. GameObject with TextMeshPro component.
+- **Easter Egg Message** : Easter egg will show this message.
 
 ## Credits
 
