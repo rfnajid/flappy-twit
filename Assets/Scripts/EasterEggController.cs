@@ -2,8 +2,14 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class EasterEggGameController : GameController
+public class EasterEggController : MonoBehaviour
 {
+
+    public GameController gameController
+    {
+        set; private get;
+    }
+
     public int easterEggGeneratingTime;
     public int scoreToEasterEgg;
 
@@ -16,10 +22,10 @@ public class EasterEggGameController : GameController
 
     protected void Awake()
     {
-        base.Awake();
 
-        //set generator
-        easterEggGenerator.gameController = this;
+
+        easterEggGenerator.easterEggController = this;
+        easterEggGenerator.gameController = gameController;
 
         // set easter egg message
         easterEgg.text = easterEggMessage;
@@ -27,13 +33,7 @@ public class EasterEggGameController : GameController
 
     public bool isEasterEgg()
     {
-        return point >= scoreToEasterEgg;
+        return gameController.point >= scoreToEasterEgg;
     }
 
-    public void GameOver()
-    {
-        base.GameOver();
-
-        easterEggGenerator.StopAllCoroutines();
-    }
 }

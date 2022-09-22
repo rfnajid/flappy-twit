@@ -6,6 +6,11 @@ public abstract class Generator : MonoBehaviour
     public bool isOn;
     protected Mover nextObject;
 
+    public GameController gameController
+    {
+        set; protected get;
+    }
+
     public abstract void Awake();
     public abstract void InitGenerator();
     public abstract void StartGenerator();

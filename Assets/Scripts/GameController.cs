@@ -18,9 +18,12 @@ public class GameController : MonoBehaviour
     public Bird bird;
 
     public ChallengeGenerator challengeGenerator;
+
     public int generatingTime;
 
     private UIController uIController;
+
+    public EasterEggController easterEggController;
 
     private Vector3 birdDefaultPosition;
 
@@ -30,6 +33,11 @@ public class GameController : MonoBehaviour
         challengeGenerator.gameController = this;
 
         bird.gameController = this;
+
+        if (easterEggController != null)
+        {
+            this.easterEggController.gameController = this;
+        }
 
         //set UI Controller
         uIController = GetComponent<UIController>();
@@ -87,10 +95,22 @@ public class GameController : MonoBehaviour
         uIController.SetPoint(point);
     }
 
-
     public void SetBirdDefaultPosition(Vector3 position)
     {
         this.birdDefaultPosition = position;
         Debug.Log("set bird default position to = " + this.birdDefaultPosition);
+    }
+
+    public bool isEasterEgg()
+    {
+        bool res = easterEggController != null ? easterEggController.isEasterEgg() : false;
+        Debug.Log("GameController : isEasterEgg ? " + res);
+
+        if (res)
+        {
+            challengeGenerator.StopAllCoroutines();
+            easterEggController.easterEggGenerator.StartGenerator();
+        }
+        return res;
     }
 }

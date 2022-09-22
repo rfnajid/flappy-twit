@@ -6,7 +6,7 @@ public class EasterEggGenerator : Generator
 {
     public Mover easterEgg;
 
-    public EasterEggGameController gameController
+    public EasterEggController easterEggController
     {
         set; private get;
     }
@@ -36,11 +36,10 @@ public class EasterEggGenerator : Generator
     protected override IEnumerator Generating()
     {
         int generatingTime = 0;
-        this.isOn = gameController.isEasterEgg();
-        while (gameController.isPlaying && isOn)
+        while (isOn || easterEggController.isEasterEgg())
         {
             nextObject = easterEgg;
-            generatingTime = gameController.easterEggGeneratingTime;
+            generatingTime = easterEggController.easterEggGeneratingTime;
             yield return AfterGenerating(generatingTime);
         }
 

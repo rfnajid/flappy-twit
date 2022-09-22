@@ -6,11 +6,6 @@ public class ChallengeGenerator : Generator
 {
     public Mover[] walls;
 
-    public GameController gameController
-    {
-        set; protected get;
-    }
-
     public override void Awake()
     {
         InitGenerator();
@@ -40,6 +35,7 @@ public class ChallengeGenerator : Generator
         int generatingTime = 0;
         while (gameController.isPlaying && isOn)
         {
+            isOn = isOn && !gameController.isEasterEgg();
             System.Random random = new System.Random();
             int randomNumber = random.Next(0, walls.Length);
             nextObject = walls[randomNumber];
