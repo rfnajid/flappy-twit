@@ -9,33 +9,38 @@ public class UIController : MonoBehaviour
     public GameObject uiStart;
     public GameObject uiGamePlay;
     public GameObject uiEnd;
-    public GameController gameController{
+    public GameController gameController
+    {
         set; private get;
     }
     private Text textPoint;
 
-    private void Awake() {
-        textPoint = uiGamePlay.transform.GetChild(uiGamePlay.transform.childCount-1)
+    private void Awake()
+    {
+        textPoint = uiGamePlay.transform.GetChild(uiGamePlay.transform.childCount - 1)
             .GetChild(1).GetComponent<Text>();
         uiGamePlay.SetActive(false);
         uiEnd.SetActive(false);
         uiStart.SetActive(true);
     }
 
-    public void setPoint(int point){
-        textPoint.text = point+"";
+    public void SetPoint(int point)
+    {
+        textPoint.text = point + "";
     }
 
-    public void gameStart(){
+    public void GameStart()
+    {
         uiEnd.SetActive(false);
         uiStart.SetActive(false);
         uiGamePlay.SetActive(true);
     }
 
-    public void gameOver(int point){
+    public void GameOver(int point)
+    {
 
-        Text finalScore = uiEnd.transform.GetChild(uiEnd.transform.childCount-1).GetComponent<Text>();
-        finalScore.text = "score : "+point;
+        Text finalScore = uiEnd.transform.GetChild(uiEnd.transform.childCount - 1).GetComponent<Text>();
+        finalScore.text = "score : " + point;
 
         uiStart.SetActive(false);
         uiGamePlay.SetActive(false);
