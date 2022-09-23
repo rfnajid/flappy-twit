@@ -20,10 +20,8 @@ public class EasterEggController : MonoBehaviour
 
     public EasterEggGenerator easterEggGenerator;
 
-    protected void Awake()
+    public void Awake()
     {
-
-
         easterEggGenerator.easterEggController = this;
         easterEggGenerator.gameController = gameController;
 

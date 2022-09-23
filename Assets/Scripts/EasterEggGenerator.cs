@@ -18,7 +18,6 @@ public class EasterEggGenerator : Generator
 
     public override void InitGenerator()
     {
-
         easterEgg.transform.parent = this.transform;
         easterEgg.transform.position = new Vector3(
                 transform.position.x,
@@ -42,7 +41,5 @@ public class EasterEggGenerator : Generator
             generatingTime = easterEggController.easterEggGeneratingTime;
             yield return AfterGenerating(generatingTime);
         }
-
-
     }
 }

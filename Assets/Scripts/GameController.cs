@@ -23,26 +23,43 @@ public class GameController : MonoBehaviour
 
     private UIController uIController;
 
-    public EasterEggController easterEggController;
+    public EasterEggController easterEggController
+    {
+        get; private set;
+    }
+
+    public LyricController lyricController
+    {
+        get; private set;
+    }
 
     private Vector3 birdDefaultPosition;
 
     protected void Awake()
     {
+        //set UI Controller
+        uIController = GetComponent<UIController>();
+        uIController.gameController = this;
 
         challengeGenerator.gameController = this;
 
         bird.gameController = this;
 
+        easterEggController = GetComponent<EasterEggController>();
         if (easterEggController != null)
         {
-            this.easterEggController.gameController = this;
+            Debug.Log("EASTER EGG CONTROLLER DETECTED!!!");
+            easterEggController.gameController = this;
+            easterEggController.Awake();
         }
 
-        //set UI Controller
-        uIController = GetComponent<UIController>();
-        uIController.gameController = this;
-
+        lyricController = GetComponent<LyricController>();
+        if (lyricController != null)
+        {
+            Debug.Log("LYRIC CONTROLLER DETECTED!!!");
+            lyricController.gameController = this;
+            lyricController.Awake();
+        }
     }
 
     void Start()
@@ -88,6 +105,17 @@ public class GameController : MonoBehaviour
         Debug.Log("GameController : add point = " + point);
         obj.SetActive(false);
         SetTextPoint();
+
+        if (easterEggController != null && easterEggController.isEasterEgg())
+        {
+            challengeGenerator.StopAllCoroutines();
+            easterEggController.easterEggGenerator.StartGenerator();
+        }
+
+        if (lyricController != null && lyricController.LyricTrigger())
+        {
+            lyricController.lyricGenerator.StartGenerator();
+        }
     }
 
     private void SetTextPoint()
@@ -106,11 +134,6 @@ public class GameController : MonoBehaviour
         bool res = easterEggController != null ? easterEggController.isEasterEgg() : false;
         Debug.Log("GameController : isEasterEgg ? " + res);
 
-        if (res)
-        {
-            challengeGenerator.StopAllCoroutines();
-            easterEggController.easterEggGenerator.StartGenerator();
-        }
         return res;
     }
 }
