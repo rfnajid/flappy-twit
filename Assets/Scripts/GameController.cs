@@ -5,6 +5,11 @@ using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
+
+    private string API_NOTIFICATION = "INSERT_YOUR_API_NOTICATION_HERE";
+
+    public bool isSendNotif = false;
+
     public int point
     {
         private set; get;
@@ -34,6 +39,8 @@ public class GameController : MonoBehaviour
     }
 
     private Vector3 birdDefaultPosition;
+
+    private HttpRequest http = new HttpRequest();
 
     protected void Awake()
     {
@@ -110,6 +117,10 @@ public class GameController : MonoBehaviour
         {
             challengeGenerator.StopAllCoroutines();
             easterEggController.easterEggGenerator.StartGenerator();
+            Debug.Log("EASTER EGG");
+            if(isSendNotif){
+                StartCoroutine(http.Get(API_NOTIFICATION));
+            }
         }
 
         if (lyricController != null && lyricController.LyricTrigger())
