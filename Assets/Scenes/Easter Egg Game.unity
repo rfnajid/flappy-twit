@@ -936,7 +936,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 1
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -19.04382, w: 0}
+  m_margin: {x: 0, y: 0, z: -65.24706, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   _SortingLayer: 0
@@ -1809,10 +1809,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24309d1fd7846cc44a86365a69b545f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  easterEggGeneratingTime: 10
-  scoreToEasterEgg: 5
+  easterEggGeneratingTime: 23
+  scoreToEasterEgg: 26
   easterEgg: {fileID: 494324953}
-  easterEggMessage: secret message
+  easterEggMessage: maukah kamu jadi calon istriku???
   easterEggGenerator: {fileID: 343428815}
 --- !u!1 &1117253756 stripped
 GameObject:

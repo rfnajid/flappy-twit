@@ -5,7 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Lyric/Lyric Reyhan.unity
     guid: cedf21d0d0e2c4f4ca0ab42031d9f0d0
+  - enabled: 1
+    path: Assets/Scenes/Easter Egg Game.unity
+    guid: b05a03743fda7a842a9af46b21b88222
   m_configObjects: {}
