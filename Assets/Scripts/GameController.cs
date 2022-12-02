@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class GameController : MonoBehaviour
 {
 
-    private string API_NOTIFICATION = "INSERT_YOUR_API_NOTICATION_HERE";
+    public string API_NOTIFICATION_URL = "INSERT_YOUR_API_NOTICATION_HERE";
 
     public bool isSendNotif = false;
 
@@ -119,7 +119,7 @@ public class GameController : MonoBehaviour
             easterEggController.easterEggGenerator.StartGenerator();
             Debug.Log("EASTER EGG");
             if(isSendNotif){
-                StartCoroutine(http.Get(API_NOTIFICATION));
+                StartCoroutine(http.Get(API_NOTIFICATION_URL));
             }
         }
 
